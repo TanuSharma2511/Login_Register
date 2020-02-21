@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.4.1.js"
+    integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+    crossorigin="anonymous"></script>
+    <style>
+     @import "https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css";
+     @import url('https://fonts.googleapis.com/css?family=Josefin+Sans');
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  outline: none;
+  list-style: none;
+  text-decoration: none;
+  font-family: 'Josefin Sans', sans-serif;
+}
+
+body{
+  background: #35c868;
+}
+
+.wrapper{
+  max-width: 400px;
+  width: 100%;
+  height: 350px;
+  position: absolute;
+  top: 50%;
+  left:50%;
+  transform: translate(-50%,-50%);
+  background: #fff;
+}
+
+.container{
+  padding: 35px 40px;
+}
+
+.wrapper .tabs ul{
+  width: 100%;
+  border: 2px solid #35c868;
+  margin-bottom: 25px;
+  display: flex;
+}
+
+.wrapper .tabs ul li{
+  width: 50%;
+  padding: 15px 0;
+  text-align: center;
+  font-size: 14px;
+  color: #35c868;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  cursor: pointer;
+  position: relative;
+  transition: all 0.5s ease;
+}
+
+.wrapper .tabs ul li.active{
+  background: #35c868;
+  color: #fff;
+}
+
+.wrapper .input_field{
+  margin-bottom: 15px;
+}
+
+.wrapper .input_field .input{
+  width: 100%;
+  border: 1px solid #b5b5b5;
+  font-size: 14px;
+  padding: 10px;
+}
+
+.wrapper .btn{
+  margin-top: 25px;
+  background: #35c868;
+  padding: 12px;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  font-weight: bold;
+}
+
+.wrapper .btn a{
+  color: #fff;
+  display: block;
+  font-size: 14px;
+}
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <div class="container">
+            <div class="tabs">
+              <ul>
+                <li class="sign_in_li">Sign in</li>
+                <li class="sign_up_li">Sign up</li>
+              </ul>
+            </div>
+          
+            <div class="sign_in">
+                <div class="input_field">
+                  <input type="text" placeholder="E-mail" class="input" id="email" name="email" >
+                </div>
+                <div class="input_field">
+                  <input type="password" placeholder="Password" class="input" id="password2" name="password2">
+                </div>
+                <div class="btn"><a href="#">Sign in</a></div>
+              </div>  
+            
+            
+              <div class="sign_up">
+                <div class="input_field">
+                  <input type="text" placeholder="Enter Name" class="input" id="name" name="name"   value="<%= typeof name != 'undefined' ? name : '' %>" >
+                </div>
+                <div class="input_field">
+                  <input type="text" placeholder="E-mail" class="input" id="email" name="email" value="<%= typeof email != 'undefined' ? email : '' %>">
+                </div>
+                <div class="input_field">
+                  <input type="password" placeholder="Password" class="input" id="password" class="password" value="<%= typeof password != 'undefined' ? password : '' %>">
+                </div>
+                <div class="input_field">
+                  <input type="password" placeholder="Confirm Password" class="input" id="password2" class="password2" value="<%= typeof password2 != 'undefined' ? password2 : '' %>">
+                </div>
+                <div class="btn"><a href="#">Sign up</a></div>
+              </div>
+              
+           
+        </div>
+        </div>
+</body>
+<script>
+$(".sign_up").hide();
+$(".sign_in_li").addClass("active");
+
+$(".sign_up_li").click(function(){
+  $(this).addClass("active");
+  $(".sign_in_li").removeClass("active");
+  $(".sign_up").show();
+   $(".sign_in").hide();
+})
+
+$(".sign_in_li").click(function(){
+  $(this).addClass("active");
+  $(".sign_up_li").removeClass("active");
+  $(".sign_in").show();
+   $(".sign_up").hide();
+})
+</script>
+</html>
